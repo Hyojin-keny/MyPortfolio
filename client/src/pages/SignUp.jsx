@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../api'; // 경로는 파일 위치에 맞게 조정(예: '../api' 또는 '../../api')
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -35,8 +35,11 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/signup', formData);
-      localStorage.setItem('token', res.data.token);
+      // localhost hardcoding removal
+      const res = await api.post('/api/auth/signup', formData);
+
+      if (res.data?.token) localStorage.setItem('token', res.data.token);
+
       alert('Account created!');
       navigate('/');
     } catch (err) {
@@ -50,33 +53,10 @@ export default function SignUp() {
       <div style={{ maxWidth: '400px', margin: '0 auto', color: '#3d3d3d' }}>
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            name="name"
-            type="text"
-            placeholder="Full Name"
-            onChange={handleChange}
-            required
-            style={inputStyle}
-          />
-          <input
-            name="email"
-            type="email"
-            placeholder="Email Address"
-            onChange={handleChange}
-            required
-            style={inputStyle}
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-            required
-            style={inputStyle}
-          />
-          <button type="submit" style={buttonStyle}>
-            Sign Up
-          </button>
+          <input name="name" type="text" placeholder="Full Name" onChange={handleChange} required style={inputStyle} />
+          <input name="email" type="email" placeholder="Email Address" onChange={handleChange} required style={inputStyle} />
+          <input name="password" type="password" placeholder="Password" onChange={handleChange} required style={inputStyle} />
+          <button type="submit" style={buttonStyle}>Sign Up</button>
         </form>
       </div>
     </div>

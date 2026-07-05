@@ -1,6 +1,7 @@
 // express.js (CJS 최종본)
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
@@ -12,6 +13,10 @@ const authRoutes = require('./routes/auth.routes.js');
 const contactRoutes = require('./routes/contact.routes.js');
 
 const app = express();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.error('MongoDB Error:', err));
 
 /** Core middlewares (routes보다 먼저) */
 app.use(helmet());
@@ -52,3 +57,5 @@ app.use((err, req, res, next) => {
 /** Start server */
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server on', PORT));
+
+console.log("MONGO_URI =", process.env.MONGO_URI);

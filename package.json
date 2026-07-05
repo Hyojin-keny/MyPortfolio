@@ -11,13 +11,13 @@
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
     "babel-loader": "^10.0.0",
-    "nodemon": "^3.1.10"
+    "concurrently": "^10.0.3",
+    "nodemon": "^3.1.14"
   },
-  "scripts": {
-    "dev": "concurrently 'vite' \"nodemon server.js\"",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

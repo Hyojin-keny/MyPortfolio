@@ -1,6 +1,6 @@
-import { useState }   from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios          from 'axios';
+import api from '../api'; // 경로 조정
 
 export default function Contact() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export default function Contact() {
     lastName: '',
     phone: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const inputStyle = {
@@ -22,37 +22,34 @@ export default function Contact() {
     border: 'none',
     borderRadius: '6px',
     fontSize: '14px',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)'
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
   };
 
-  const buttonStyle = {  
+  const buttonStyle = {
     padding: '12px 24px',
     fontSize: '16px',
     backgroundColor: '#FFC74F',
     color: '#3d3d3d',
     border: 'none',
     borderRadius: '4px',
-    cursor: 'pointer'
+    cursor: 'pointer',
   };
 
   const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
     try {
-      const res = await axios.post("http://localhost:3000/api/contacts", formData);
+      // ✅ 서버 라우팅: app.use('/api/contact', contactRoutes);
+      const res = await api.post('/api/contact', formData);
       console.log('API response:', res.data);
       alert('Thank you! Your message has been received.');
       navigate('/');
     } catch (err) {
       console.error('API error:', err);
-      alert('Sorry, something went wrong.');
+      alert(err.response?.data?.error || 'Sorry, something went wrong.');
     }
   };
 
@@ -66,20 +63,12 @@ export default function Contact() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <input name="firstName" type="text" placeholder="First Name"
-            onChange={handleChange} required style={inputStyle} />
-          <input name="lastName"  type="text" placeholder="Last Name"
-            onChange={handleChange} required style={inputStyle} />
-          <input name="phone"     type="tel" placeholder="Contact Number"
-            onChange={handleChange} required style={inputStyle} />
-          <input name="email"     type="email" placeholder="Email Address"
-            onChange={handleChange} required style={inputStyle} />
-          <textarea name="message" placeholder="Your Message" rows="4"
-            onChange={handleChange} required style={{ ...inputStyle, resize: 'vertical' }} />
-          {/* buttonStyle */}
-          <button type="submit" style={buttonStyle}>
-            Submit
-          </button>
+          <input name="firstName" type="text" placeholder="First Name" onChange={handleChange} required style={inputStyle} />
+          <input name="lastName"  type="text" placeholder="Last Name" onChange={handleChange} required style={inputStyle} />
+          <input name="phone"     type="tel" placeholder="Contact Number" onChange={handleChange} required style={inputStyle} />
+          <input name="email"     type="email" placeholder="Email Address" onChange={handleChange} required style={inputStyle} />
+          <textarea name="message" placeholder="Your Message" rows="4" onChange={handleChange} required style={{ ...inputStyle, resize: 'vertical' }} />
+          <button type="submit" style={buttonStyle}>Submit</button>
         </form>
       </div>
     </div>

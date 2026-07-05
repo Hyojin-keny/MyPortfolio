@@ -54,11 +54,18 @@ export default function About() {
               Hyojin Kim
             </p>
             <p>Software Engineering Student</p>
+            <div
+              style={{
+                width: '100%',
+                height: '1px',
+                backgroundColor: '#000',
+                margin: '10px 0'
+              }}
+            />
             <p>
-              with<br />
-              No fixed frame<br />
-              I build my span<br />
-              I break the load
+              Forgive Myself<br />
+              the cure for<br />
+              a broken heart<br />
             </p>
             <h3>Explore Me</h3>
             <a href="/resume.pdf" download>📄 Download My Resume</a>

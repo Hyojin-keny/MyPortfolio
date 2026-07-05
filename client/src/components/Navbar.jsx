@@ -33,11 +33,12 @@ export default function Navbar() {
         src={logo}
         alt="Logo"
         style={{
-          height: '100px',
+          height: 'clamp(40px, 8vw, 100px)',
+          maxHeight: '80px',
+          width: 'auto',
           marginRight: '16px',
           position: 'absolute',
           left: '20px',
-          marginTop: '15px'
         }}
       />
 
