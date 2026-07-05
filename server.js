@@ -23,8 +23,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    // Vercel 배포 후 여기에 추가
-    // 'https://your-project.vercel.app'
+    'https://my-portfolio-black-two-69.vercel.app/'
   ],
   credentials: true,
 }));
