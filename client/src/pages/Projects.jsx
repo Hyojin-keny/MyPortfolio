@@ -44,7 +44,9 @@ export default function Projects() {
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
         <h2>You must be signed in to view your projects</h2>
-        <p>Please sign in or create an account to see your portfolio projects.</p>
+        <p>Please sign in or create an account to see your portfolio projects. <br />
+          ⚠️ 회원가입 후 로그인해야 프로젝트를 볼 수 있습니다.
+        </p>
       </div>
     );
   }
