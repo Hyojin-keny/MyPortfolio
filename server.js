@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://my-portfolio-black-two-69.vercel.app/'
+    'https://my-portfolio-black-two-69.vercel.app'
   ],
   credentials: true,
 }));
