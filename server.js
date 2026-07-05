@@ -41,7 +41,7 @@ app.get('/health', (req, res) => {
 });
 
 // Routes
-app.use('/api/contacts', contactRoutes);
+app.use('/api/contact', contactRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/qualifications', qualificationRoutes);
 app.use('/api/users', userRoutes);
