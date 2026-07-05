@@ -46,7 +46,14 @@ export default function Projects() {
             href="https://hyojin-keny.github.io/Landing-page/"
             target="_blank"
           >
-            https://hyojin-keny.github.io/Landing-page/
+            https://hyojin-keny.github.io/Landing-page <br />
+          </a> 
+          <a
+            href="https://github.com/Hyojin-keny/Landing-page"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
           </a> </p>
         </>
       ),
@@ -63,7 +70,14 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://shop-project-lyart.vercel.app
+            https://shop-project-lyart.vercel.app <br />
+          </a>
+          <a
+            href="https://github.com/Hyojin-keny/shop_project"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
           </a> </p>
         </>
       ),
@@ -79,7 +93,14 @@ export default function Projects() {
             href="https://hyojin-keny.github.io/Find-Poketmon/"
             target="_blank"
           >
-            https://hyojin-keny.github.io/Find-Poketmon
+            https://hyojin-keny.github.io/Find-Poketmon <br />
+          </a> 
+            <a
+            href="https://github.com/Hyojin-keny/Find-Poketmon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
           </a> </p>
         </>
       ),
