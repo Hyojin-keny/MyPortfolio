@@ -26,6 +26,20 @@ export default function Projects() {
   const [selected, setSelected] = useState(null);
   const [imgIndex, setImgIndex] = useState(0);
 
+  const arrowStyle = {
+    width: '42px',
+    height: '42px',
+    borderRadius: '55%',
+    border: '1px solid #ddd',
+    background: '#fff',
+    color: '#333',
+    fontSize: '20px',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+
   if (!user) {
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
@@ -46,14 +60,14 @@ export default function Projects() {
             href="https://hyojin-keny.github.io/Landing-page/"
             target="_blank"
           >
-            https://hyojin-keny.github.io/Landing-page <br />
+            ➜ https://hyojin-keny.github.io/Landing-page <br />
           </a> 
           <a
             href="https://github.com/Hyojin-keny/Landing-page"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+           🔗 GitHub
           </a> </p>
         </>
       ),
@@ -70,14 +84,14 @@ export default function Projects() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://shop-project-lyart.vercel.app <br />
+            ➜ https://shop-project-lyart.vercel.app <br />
           </a>
           <a
             href="https://github.com/Hyojin-keny/shop_project"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+            🔗 GitHub
           </a> </p>
         </>
       ),
@@ -93,14 +107,14 @@ export default function Projects() {
             href="https://hyojin-keny.github.io/Find-Poketmon/"
             target="_blank"
           >
-            https://hyojin-keny.github.io/Find-Poketmon <br />
+            ➜ https://hyojin-keny.github.io/Find-Poketmon <br />
           </a> 
             <a
             href="https://github.com/Hyojin-keny/Find-Poketmon"
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub
+            🔗 GitHub
           </a> </p>
         </>
       ),
@@ -116,7 +130,7 @@ export default function Projects() {
             href="/COMP214 – Advanced Database Concepts.pdf"
             download
           >
-            📄 Database system Report
+            ⬇️ Database system Report
           </a> </p>
         </>
       ),
@@ -267,15 +281,9 @@ export default function Projects() {
                     prev === 0 ? selected.images.length - 1 : prev - 1
                   )
                 }
-                style={{
-                  border: 'none',
-                  background: 'transparent',
-                  fontSize: '20px',
-                  cursor: 'pointer',
-                  color: '#6e6d6d'
-                }}
+                style={arrowStyle}
               >
-                ◀
+                ❮
               </button>
 
               <button
@@ -284,15 +292,9 @@ export default function Projects() {
                     prev === selected.images.length - 1 ? 0 : prev + 1
                   )
                 }
-                style={{
-                  border: 'none',
-                  background: 'transparent',
-                  fontSize: '20px',
-                  cursor: 'pointer',
-                  color: '#6e6d6d'
-                }}
+                style={arrowStyle}
               >
-                ▶
+                ❯
               </button>
             </div>
           </div>

@@ -68,7 +68,14 @@ export default function About() {
               a broken heart<br />
             </p>
             <h3>Explore Me</h3>
-            <a href="/resume.pdf" download>📄 Download My Resume</a>
+            <a href="/resume.pdf" download>⬇️ Download My Resume</a><br />
+            <a
+                href="https://github.com/Hyojin-keny/MyPortfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🔗 GitHub
+              </a>
           </div>
         </div>
       </div>
