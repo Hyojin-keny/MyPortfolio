@@ -12,7 +12,7 @@ export default function Profile() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '40px', background: 'linear-gradient(135deg, #F8F7F1, #E6EAD9)' }}>
+    <div style={{ minHeight: '100vh', padding: '40px', backgroundColor: '#FAF8E6' }}>
       <div
         style={{
           maxWidth: '500px',
