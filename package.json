@@ -14,7 +14,7 @@
     "concurrently": "^10.0.3",
     "nodemon": "^3.1.14"
   },
-    "scripts": {
+  "scripts": {
     "client": "npm run dev --prefix client",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -34,6 +34,7 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
+    "lottie-react": "^2.4.1",
     "method-override": "^3.0.0",
     "mongoose": "^8.16.1"
   }

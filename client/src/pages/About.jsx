@@ -78,8 +78,8 @@ export default function About() {
               the cure for a broken heart"<br />
             <br />
             <h3>Explore Me</h3>
-            <a href="/resume.pdf" download>⬇️ Download My Resume</a><br />
-            <a
+            <a style={{ color: 'black' }} href="/resume.pdf" download>⬇️ Download My Resume</a><br />
+            <a style={{ color: 'black' }}
                 href="https://github.com/Hyojin-keny/MyPortfolio"
                 target="_blank"
                 rel="noopener noreferrer"

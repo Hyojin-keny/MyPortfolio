@@ -14,10 +14,10 @@ export default function Contact() {
   });
 
   const inputStyle = {
-    width: '100%',
+    width: '450px',
     padding: '12px',
     marginBottom: '15px',
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     color: '#000',
     border: 'none',
     borderRadius: '6px',
@@ -54,12 +54,22 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '40px' }}>
-      <div style={{ maxWidth: '400px', margin: '0 auto', color: '#3d3d3d' }}>
+    <div style={{ minHeight: '100vh', padding: '40px', background: 'linear-gradient(135deg, #F8F7F1, #E6EAD9)'}}>
+      <div
+      style={{
+        maxWidth: '550px',
+        margin: '0 auto',
+        backgroundColor: '#fff',
+        padding: '35px',
+        borderRadius: '12px',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+        color: '#3d3d3d',
+      }}
+    >
         <h1>Contact Me</h1>
         <div style={{ marginBottom: '30px' }}>
-          <p><strong>Email:</strong> hyojin@Kimail.com</p>
-          <p><strong>Phone:</strong> +1 (437) 456-7890</p>
+          <p><strong>Email:</strong> qncnwjs2@gmail.com</p>
+          <p><strong>Phone:</strong> +82 (10) 3027-3766</p>
         </div>
 
         <form onSubmit={handleSubmit}>

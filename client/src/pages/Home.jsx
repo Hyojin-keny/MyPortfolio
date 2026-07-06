@@ -1,15 +1,25 @@
 import { Link } from 'react-router-dom';
+import Lottie from "lottie-react";
+import codingAnimation from "../assets/lottie/Dark Mode Button.json";
 
 export default function Home() {
   return (
-    <div style={{ padding: '60px 20px', textAlign: 'center', color: '#3d3d3d', backgroundColor: '#FCFAE8'}}>
-        <h1 style={{ fontSize: '4.5rem', marginBottom: '80px', fontWeight: 900 , color: '#A3B18A' }}>
-            Think<br /> 
-            Talk<br />
+    <div style={{ padding: '30px 20px', textAlign: 'center', color: '#3d3d3d', backgroundColor: '#FCFAE8'}}>
+        <h1 style={{ fontSize: '4.5rem', marginBottom: '50px', fontWeight: 900 , color: '#A3B18A' }}>
+            Think Talk<br />
             Create<br /> </h1>
-        <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>
+        <p style={{ fontSize: '1.2rem' }}>
             Welcome to My Portfolio</p>
-
+            
+      <Lottie
+          animationData={codingAnimation}
+          loop={true}
+          style={{
+            width: 200,
+            height: 200,
+            margin: '0 auto'
+          }}
+        />
       <blockquote style={{ 
         fontStyle: 'italic', 
         margin: '40px auto', 
@@ -32,7 +42,7 @@ export default function Home() {
           border: 'none',
           borderRadius: '5px',
           cursor: 'pointer',
-          marginTop: '20px'
+          marginBottom: '50px'
         }}>
           About Me
         </button>

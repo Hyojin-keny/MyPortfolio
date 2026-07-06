@@ -12,13 +12,15 @@ export default function Navbar() {
   };
 
   const linkStyle = {
-    color: '#fff',
+    color: '#3D3D3D',
     textDecoration: 'none'
   };
 
   return (
     <nav style={{
-      backgroundColor: '#111',
+      backgroundColor: '#FCFAE8',
+      backdropFilter: 'blur(20px)',
+      borderBottom: '1px solid #ddd',
       padding: '1rem',
       display: 'flex',
       alignItems: 'center',
@@ -55,8 +57,8 @@ export default function Navbar() {
           <button
             onClick={handleLogout}
             style={{
-              backgroundColor: '#eee',
-              color: '#111',
+              backgroundColor: '#C97C5D',
+              color: '#ffffff',
               border: 'none',
               padding: '6px 12px',
               borderRadius: '4px',

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
+import Lottie from "lottie-react";
+import projectAnimation from "../assets/lottie/Deep Work Illustration Loop.json";
+
 import port1 from '../assets/portimg/port1.png';
 import port2 from '../assets/portimg/port2.png';
 import port3 from '../assets/portimg/port3.png';
@@ -196,20 +199,40 @@ export default function Projects() {
       <div
         style={{
           height: '300px',
-          background: 'linear-gradient(to bottom,#747070,#4c4848)',
+          background: 'linear-gradient(135deg, #6B705C, #A5A58D)',
           color: '#fff',
           padding: '20px',
         }}
       >
-        <div style={{ maxWidth: '1200px', margin: 'auto' }}>
-          <h1 style={{ marginTop: '100px' }}>My Project</h1>
+        <div
+          style={{
+            maxWidth: '1200px',
+            height: '100%',
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+  >
+        <div style={{ marginTop: '-20px', marginLeft: '50px' }}>
+          <h1>My Project</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
+
+        <Lottie
+          animationData={projectAnimation}
+          loop
+          style={{
+            width: '250px',
+            marginRight: '50px',
+          }}
+        />
       </div>
+    </div>
 
       {/* PORTFOLIO */}
-      <div style={{ textAlign: 'center', padding: '60px 0' }}>
-        <h2>Portfolio</h2>
+      <div style={{ textAlign: 'center', padding: '100px 0' }}>
+        <h3>Showcase</h3>
 
         <div style={{ maxWidth: '1200px', margin: 'auto', overflow: 'hidden' }}>
           {items.map((item, i) => (
