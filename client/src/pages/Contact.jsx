@@ -14,7 +14,7 @@ export default function Contact() {
   });
 
   const inputStyle = {
-    width: '450px',
+    width: '100%',
     padding: '12px',
     marginBottom: '15px',
     backgroundColor: '#ffffff',
@@ -23,6 +23,7 @@ export default function Contact() {
     borderRadius: '6px',
     fontSize: '14px',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    boxSizing: 'border-box',
   };
 
   const buttonStyle = {
@@ -66,20 +67,29 @@ export default function Contact() {
         color: '#3d3d3d',
       }}
     >
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '450px',
+          margin: '0 auto',
+        }}
+      >
         <h1>Contact Me</h1>
-        <div style={{ marginBottom: '30px' }}>
-          <p><strong>Email:</strong> qncnwjs2@gmail.com</p>
-          <p><strong>Phone:</strong> +82 (10) 3027-3766</p>
-        </div>
 
-        <form onSubmit={handleSubmit}>
-          <input name="firstName" type="text" placeholder="First Name" onChange={handleChange} required style={inputStyle} />
-          <input name="lastName"  type="text" placeholder="Last Name" onChange={handleChange} required style={inputStyle} />
-          <input name="phone"     type="tel" placeholder="Contact Number" onChange={handleChange} required style={inputStyle} />
-          <input name="email"     type="email" placeholder="Email Address" onChange={handleChange} required style={inputStyle} />
-          <textarea name="message" placeholder="Your Message" rows="4" onChange={handleChange} required style={{ ...inputStyle, resize: 'vertical' }} />
-          <button type="submit" style={buttonStyle}>Submit</button>
-        </form>
+          <div style={{ marginBottom: '30px' }}>
+            <p><strong>Email:</strong> qncnwjs2@gmail.com</p>
+            <p><strong>Phone:</strong> +82 (10) 3027-3766</p>
+          </div>
+
+          <form onSubmit={handleSubmit}>
+            <input name="firstName" type="text" placeholder="First Name" onChange={handleChange} required style={inputStyle} />
+            <input name="lastName"  type="text" placeholder="Last Name" onChange={handleChange} required style={inputStyle} />
+            <input name="phone"     type="tel" placeholder="Contact Number" onChange={handleChange} required style={inputStyle} />
+            <input name="email"     type="email" placeholder="Email Address" onChange={handleChange} required style={inputStyle} />
+            <textarea name="message" placeholder="Your Message" rows="4" onChange={handleChange} required style={{ ...inputStyle, resize: 'vertical' }} />
+            <button type="submit" style={buttonStyle}>Submit</button>
+          </form>
+        </div>
       </div>
     </div>
   );
