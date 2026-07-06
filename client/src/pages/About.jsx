@@ -63,10 +63,20 @@ export default function About() {
               }}
             />
             <p>
-              Forgive Myself<br />
-              the cure for<br />
-              a broken heart<br />
+              제 포트폴리오 웹사이트에 오신 걸 환영합니다!<br />
+               작은 클릭 한 번으로 제 작업 세계를 만나보세요.
             </p>
+            <div
+              style={{
+                width: '100%',
+                height: '0.5px',
+                backgroundColor: '#000',
+                margin: '10px 0'
+              }}
+            />
+             "Forgive Myself<br />
+              the cure for a broken heart"<br />
+            <br />
             <h3>Explore Me</h3>
             <a href="/resume.pdf" download>⬇️ Download My Resume</a><br />
             <a

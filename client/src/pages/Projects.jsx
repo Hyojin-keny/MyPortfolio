@@ -43,9 +43,8 @@ export default function Projects() {
   if (!user) {
     return (
       <div style={{ padding: '60px', textAlign: 'center' }}>
-        <h2>You must be signed in to view your projects</h2>
-        <p>Please sign in or create an account to see your portfolio projects. <br />
-          ⚠️ 회원가입 후 로그인해야 프로젝트를 볼 수 있습니다.
+        <h2>You must be signed in to view my projects</h2>
+        <p>⚠️ 회원가입 후 로그인하시면 제가 개발한 다양한 프로젝트들을 둘러보실 수 있습니다.
         </p>
       </div>
     );
