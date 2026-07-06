@@ -7,7 +7,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
 
   const inputStyle = {
-    width: '100%',
+    width: '70%',
     padding: '12px',
     marginBottom: '15px',
     backgroundColor: '#fff',
@@ -19,7 +19,7 @@ export default function SignUp() {
   };
 
   const buttonStyle = {
-    padding: '12px 24px',
+    padding: '12px 20px',
     fontSize: '16px',
     backgroundColor: '#FFC74F',
     color: '#3d3d3d',

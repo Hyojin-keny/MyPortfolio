@@ -46,8 +46,8 @@ export default function Navbar() {
 
       <Link to="/" style={linkStyle}>Home</Link>
       <Link to="/about" style={linkStyle}>About</Link>
-      <Link to="/projects" style={linkStyle}>Projects</Link>
       <Link to="/services" style={linkStyle}>Services</Link>
+      <Link to="/projects" style={linkStyle}>Projects</Link>
       <Link to="/contact" style={linkStyle}>Contact</Link>
 
       {/* 로그인 상태에 따라 메뉴 전환 */}

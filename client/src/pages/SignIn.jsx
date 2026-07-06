@@ -9,7 +9,7 @@ export default function SignIn() {
   const [formData, setFormData] = useState({ email: '', password: '' });
 
   const inputStyle = {
-    width: '80%',
+    width: '70%',
     padding: '12px',
     marginBottom: '15px',
     backgroundColor: '#fff',
