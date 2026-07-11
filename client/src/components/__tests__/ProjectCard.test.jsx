@@ -1,7 +1,7 @@
 import React from 'react'; // Import React for JSX
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'; // Import jest-dom for additional matchers
-import ProjectCard from '../ProjectCard';
+import ProjectCard from '../CategoryCard';
 
 test('renders project title', () => {
   const dummyProject = {

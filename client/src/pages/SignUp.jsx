@@ -19,10 +19,10 @@ export default function SignUp() {
   };
 
   const buttonStyle = {
-    padding: '12px 20px',
-    fontSize: '16px',
-    backgroundColor: '#FFC74F',
-    color: '#3d3d3d',
+    padding: '11px 44px',
+    marginTop: '10px',
+    backgroundColor: '#6B705C',
+    color: '#ffffff',
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer'
@@ -49,7 +49,7 @@ export default function SignUp() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '40px', backgroundColor: '#FCFAE8' }}>
+    <div style={{ minHeight: '100vh', padding: '120px' }}>
       <div style={{ maxWidth: '400px', margin: '0 auto', color: '#3d3d3d' }}>
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>

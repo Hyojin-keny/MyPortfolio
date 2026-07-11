@@ -9,17 +9,17 @@ export default function About() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        backgroundColor: '#FAF8E6'
+        // backgroundColor: '#FAF8E6'
       }}
     >
-      <div style={{ textAlign: 'center', maxWidth: '800px' }}>
+      <div style={{ textAlign: 'center', maxWidth: '800px', paddingTop: '40px' }}>
         <h1>About Me</h1>
         <div
           style={{
             width: '60px',
             height: '4px',
-            backgroundColor: '#FFC107',
-            margin: '0 auto 60px',
+            backgroundColor: '#A3B18A',
+            margin: '0 auto 80px',
             borderRadius: '2px'
           }}
         ></div>
@@ -74,8 +74,6 @@ export default function About() {
                 margin: '10px 0'
               }}
             />
-             "Forgive Myself<br />
-              the cure for a broken heart"<br />
             <br />
             <h3>Explore Me</h3>
             <a style={{ color: 'black' }} href="/resume.pdf" download>⬇️ Download My Resume</a><br />

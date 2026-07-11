@@ -21,25 +21,24 @@ export default function SignIn() {
   };
 
   const buttonContainerStyle = {
-    width: '80%',
+    width: '76%',
     display: 'flex',
     justifyContent: 'space-between',
     gap: '10px',
-    marginTop: '10px',
   };
 
   const buttonStyle = {
     width: '50%',
     padding: '12px 0',
-    fontSize: '16px',
-    backgroundColor: '#FFC74F',
-    color: '#3d3d3d',
+    marginTop: '15px',
+    backgroundColor: '#6B705C',
+    color: '#ffffff',
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
   };
 
-  const grayButtonStyle = { ...buttonStyle, backgroundColor: '#eee' };
+  const grayButtonStyle = { ...buttonStyle, backgroundColor: '#A3B18A' };
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -62,7 +61,7 @@ export default function SignIn() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '40px', backgroundColor: '#FCFAE8' }}>
+    <div style={{ minHeight: '100vh', padding: '120px' }}>
       <div style={{ maxWidth: '400px', margin: '0 auto', color: '#3d3d3d' }}>
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>

@@ -1,328 +1,215 @@
-import { useState } from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
+import api from "../api";
+
+import CategoryCard from "../components/CategoryCard";
+import ProjectModal from "../components/ProjectModal";
+import ProjectForm from "../components/ProjectForm";
 
 import Lottie from "lottie-react";
 import projectAnimation from "../assets/lottie/Deep Work Illustration Loop.json";
 
-import port1 from '../assets/portimg/port1.png';
-import port2 from '../assets/portimg/port2.png';
-import port3 from '../assets/portimg/port3.png';
-import port4 from '../assets/portimg/port4.png';
-
-import clo1 from '../assets/shop/clo1.png';
-import clo2 from '../assets/shop/clo2.png';
-import clo3 from '../assets/shop/clo3.png';
-import clo4 from '../assets/shop/clo4.png';
-import randing from '../assets/shop/randing.png';
-import randing2 from '../assets/shop/randing2.png';
-import poke1 from '../assets/shop/poke1.png';
-import poke2 from '../assets/shop/poke2.png';
-import poke3 from '../assets/shop/poke3.png';
-import poke4 from '../assets/shop/poke4.png';
-import ERD1 from '../assets/shop/ERD1.png';
-import ERD2 from '../assets/shop/ERD2.png';
-import ERD3 from '../assets/shop/ERD3.png';
-
 export default function Projects() {
   const { user } = useAuth();
-  const [hovered, setHovered] = useState(null);
-  const [selected, setSelected] = useState(null);
-  const [imgIndex, setImgIndex] = useState(0);
 
-  const arrowStyle = {
-    width: '42px',
-    height: '42px',
-    borderRadius: '55%',
-    border: '1px solid #ddd',
-    background: '#fff',
-    color: '#333',
-    fontSize: '20px',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+  const [showForm, setShowForm] = useState(false);
+  const [editingProject, setEditingProject] = useState(null);
+  const [hovered, setHovered] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    async function loadProjects() {
+      try {
+        const res = await api.get("/api/projects");
+        setProjects(res.data);
+      } catch (err) {
+        console.error("프로젝트 불러오기 실패:", err.response?.data || err);
+      }
+    }
+
+    if (user) {
+      loadProjects();
+    }
+  }, [user]);
+
+  const handleAddProject = async (data) => {
+    try {
+      console.log("추가할 프로젝트:", data);
+
+      const res = await api.post("/api/projects", data);
+
+      setProjects((prev) => [...prev, res.data]);
+      setShowForm(false);
+    } catch (err) {
+      console.error("프로젝트 추가 실패:", err.response?.data || err);
+    }
   };
+
+  const handleUpdateProject = async (data) => {
+    if (!editingProject?._id) return;
+
+    try {
+      const res = await api.put(
+        `/api/projects/${editingProject._id}`,
+        data
+      );
+
+      setProjects((prev) =>
+        prev.map((project) =>
+          project._id === editingProject._id ? res.data : project
+        )
+      );
+
+      setEditingProject(null);
+      setShowForm(false);
+    } catch (err) {
+      console.error("프로젝트 수정 실패:", err.response?.data || err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await api.delete(`/api/projects/${id}`);
+
+      setProjects((prev) =>
+        prev.filter((project) => project._id !== id)
+      );
+
+      setSelectedCategory(null);
+    } catch (err) {
+      console.error("프로젝트 삭제 실패:", err.response?.data || err);
+    }
+  };
+
+  const categories = [
+    { id: "page", title: "Page Design" },
+    { id: "ui", title: "UI" },
+    { id: "app", title: "App" },
+    { id: "api", title: "API" },
+  ];
 
   if (!user) {
     return (
-      <div style={{ padding: '60px', textAlign: 'center' }}>
-        <h2>You must be signed in to view my projects</h2>
-        <p>⚠️ 회원가입 후 로그인하시면 제가 개발한 다양한 프로젝트들을 둘러보실 수 있습니다.
+      <div style={{ paddingTop: '150px', textAlign: "center" }}>
+        <h2>You must be signed in to view the projects</h2>
+        <p>
+          ⚠️ 회원가입 후 로그인하시면 제가 개발한 다양한 프로젝트들을
+          둘러보실 수 있습니다.
         </p>
       </div>
     );
   }
 
-  const items = [
-    {
-      img: port3,
-      title: 'Landing Page',
-      desc: (
-        <>
-          <p> landing page design <br />
-          <a
-            href="https://hyojin-keny.github.io/Landing-page/"
-            target="_blank"
-          >
-            ➜ https://hyojin-keny.github.io/Landing-page <br />
-          </a> 
-          <a
-            href="https://github.com/Hyojin-keny/Landing-page"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-           🔗 GitHub
-          </a> </p>
-        </>
-      ),
-      images: [randing, randing2],
-    },
-    {
-      img: port2,
-      title: 'E-commerce UI',
-      desc: (
-        <>
-          <p> Blossom Clothing <br />
-          <a
-            href="https://shop-project-lyart.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ➜ https://shop-project-lyart.vercel.app <br />
-          </a>
-          <a
-            href="https://github.com/Hyojin-keny/shop_project"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            🔗 GitHub
-          </a> </p>
-        </>
-      ),
-      images: [clo1, clo2, clo3, clo4],
-    },
-    {
-      img: port1,
-      title: 'UI Interaction Frontend Project',
-      desc: (
-        <>
-          <p> Pokémon Search & Favorite App <br />
-          <a
-            href="https://hyojin-keny.github.io/Find-Poketmon/"
-            target="_blank"
-          >
-            ➜ https://hyojin-keny.github.io/Find-Poketmon <br />
-          </a> 
-            <a
-            href="https://github.com/Hyojin-keny/Find-Poketmon"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            🔗 GitHub
-          </a> </p>
-        </>
-      ),
-      images: [poke1,poke2,poke3,poke4],
-    },
-    {
-      img: port4,
-      title: 'PL/SQL Programming',
-      desc: (
-        <>
-          <p>E-commerce system <br />
-          <a
-            href="/COMP214 – Advanced Database Concepts.pdf"
-            download
-          >
-            ⬇️ Database system Report
-          </a> </p>
-        </>
-      ),
-      images: [ERD1,ERD2,ERD3],
-    },
-  ];
-
-  const baseStyle = (i, url) => ({
-    position: 'relative',
-    width: '50%',
-    height: '350px',
-    float: 'left',
-    backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${url})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    cursor: 'pointer',
-    transform: hovered === i ? 'scale(1.03)' : 'scale(1)',
-    transition: '0.3s ease',
-  });
-
-  const overlay = (i) => ({
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    border: hovered === i ? '30px solid white' : '0px solid white',
-    transition: '0.3s ease',
-    top: 0,
-    left: 0,
-  });
-
-  const textStyle = {
-    position: 'absolute',
-    color: 'white',
-    marginTop: '80px',
-    marginLeft: '50px',
-    textAlign: 'left',
-  };
-
-  const modalBg = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    background: 'rgba(0,0,0,0.6)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 999,
-  };
-
-  const modalBox = {
-    width: '500px',
-    background: 'white',
-    padding: '20px',
-    borderRadius: '10px',
-  };
-
   return (
     <>
-      {/* MAIN */}
       <div
         style={{
-          height: '300px',
-          background: 'linear-gradient(135deg, #6B705C, #A5A58D)',
-          color: '#fff',
-          padding: '20px',
+          height: "300px",
+          // marginTop: '-60px',
+          paddingTop: '70px',
+          color: "#fff",
+          background: "linear-gradient(135deg, #6B705C, #A5A58D)",
         }}
       >
         <div
           style={{
-            maxWidth: '1200px',
-            height: '100%',
-            margin: '0 auto',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
+            maxWidth: "1200px",
+            height: "100%",
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
-  >
-        <div style={{ marginTop: '-20px', marginLeft: '50px' }}>
-          <h1>My Project</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        >
+          <div style={{ marginTop: "-120px", marginLeft: "40px" }}>
+            <h1>My Project</h1>
+            <p>Explore the technologies I use to build modern web applications.</p>
+          </div>
+
+          <Lottie
+            animationData={projectAnimation}
+            loop
+            style={{
+              width: "250px",
+              marginRight: "50px",
+            }}
+          />
         </div>
-
-        <Lottie
-          animationData={projectAnimation}
-          loop
-          style={{
-            width: '250px',
-            marginRight: '50px',
-          }}
-        />
       </div>
-    </div>
 
-      {/* PORTFOLIO */}
-      <div style={{ textAlign: 'center', padding: '100px 0' }}>
+      <div
+        style={{
+          textAlign: "center",
+          padding: "100px 0",
+          backgroundColor: '#FAF8E6'
+        }}
+      >
+        {user.role === "admin" && (
+          <button
+            onClick={() => {
+              setEditingProject(null);
+              setShowForm(true);
+            }}
+            style={{
+              padding: "12px 20px",
+              margin: "20px 0",
+              background: "#6B705C",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+            }}
+          >
+            + Add Project
+          </button>
+        )}
+
         <h3>Showcase</h3>
 
-        <div style={{ maxWidth: '1200px', margin: 'auto', overflow: 'hidden' }}>
-          {items.map((item, i) => (
-            <div
-              key={i}
-              style={baseStyle(i, item.img)}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-              onClick={() => {
-                setSelected(item);
-                setImgIndex(0);
-              }}
-            >
-              <div style={overlay(i)} />
-              <div style={textStyle}>
-                <h4>{item.title}</h4>
-                <p>Click to view project details</p>
-              </div>
-            </div>
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "auto",
+            overflow: "hidden",
+          }}
+        >
+          {categories.map((category, index) => (
+            <CategoryCard
+              key={category.id}
+              category={category}
+              index={index}
+              hovered={hovered}
+              setHovered={setHovered}
+              onClick={() => setSelectedCategory(category)}
+            />
           ))}
         </div>
       </div>
 
-      {/* MODAL */}
-      {selected && (
-        <div style={modalBg} onClick={() => setSelected(null)}>
-          <div
-            style={{ ...modalBox, position: 'relative' }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* X BUTTON */}
-            <button
-              onClick={() => setSelected(null)}
-               style={{
-                position: 'absolute',
-                top: '8px',
-                right: '10px',
-                border: 'none',
-                background: 'transparent',
-                fontSize: '20px',
-                cursor: 'pointer',
-                color: '#333',
-              }}
-            >
-              ×
-            </button>
+      <ProjectModal
+        category={selectedCategory}
+        projects={projects}
+        close={() => setSelectedCategory(null)}
+        user={user}
+        onDelete={handleDelete}
+        onEdit={(project) => {
+          setEditingProject(project);
+          setShowForm(true);
+        }}
+      />
 
-            <h2>{selected.title}</h2>
-
-            <img
-              src={selected.images[imgIndex]}
-              alt=""
-              style={{ width: '100%', marginTop: '10px' }}
-            />
-
-            <p style={{ marginTop: '10px' }}>{selected.desc}</p>
-
-            {/* ARROWS */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginTop: '10px',
-                alignItems: 'center',
-              }}
-            >
-              <button
-                onClick={() =>
-                  setImgIndex((prev) =>
-                    prev === 0 ? selected.images.length - 1 : prev - 1
-                  )
-                }
-                style={arrowStyle}
-              >
-                ❮
-              </button>
-
-              <button
-                onClick={() =>
-                  setImgIndex((prev) =>
-                    prev === selected.images.length - 1 ? 0 : prev + 1
-                  )
-                }
-                style={arrowStyle}
-              >
-                ❯
-              </button>
-            </div>
-          </div>
-        </div>
+      {showForm && (
+        <ProjectForm
+          close={() => {
+            setShowForm(false);
+            setEditingProject(null);
+          }}
+          initialData={editingProject}
+          onSubmit={
+            editingProject ? handleUpdateProject : handleAddProject
+          }
+        />
       )}
 
       {/* FOOTER */}

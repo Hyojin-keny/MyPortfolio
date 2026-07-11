@@ -1,0 +1,14 @@
+.app-layout {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+  #FAF8E6 0%,
+  #F3EFD9 35%,
+  #C4D2B6 100%
+);
+}
+
+.page-content {
+  min-height: 100vh;
+  /* padding-top: 60px; */
+}

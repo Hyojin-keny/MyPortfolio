@@ -27,10 +27,10 @@ export default function Contact() {
   };
 
   const buttonStyle = {
-    padding: '12px 24px',
+    padding: '12px 30px',
     fontSize: '16px',
-    backgroundColor: '#FFC74F',
-    color: '#3d3d3d',
+    backgroundColor: '#6B705C',
+    color: '#ffffff',
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
@@ -55,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '40px', background: 'linear-gradient(135deg, #F8F7F1, #E6EAD9)'}}>
+    <div style={{ minHeight: '100vh', paddingTop: '120px'}}>
       <div
       style={{
         maxWidth: '550px',

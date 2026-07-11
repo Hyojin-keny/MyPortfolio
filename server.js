@@ -9,7 +9,6 @@ const helmet = require('helmet');
 
 const contactRoutes = require('./server/routes/contact.routes.js');
 const projectRoutes = require('./server/routes/project.routes.js');
-const qualificationRoutes = require('./server/routes/qualification.routes.js');
 const userRoutes = require('./server/routes/user.routes.js');
 const authRoutes = require('./server/routes/auth.routes.js');
 
@@ -43,7 +42,6 @@ app.get('/health', (req, res) => {
 // Routes
 app.use('/api/contact', contactRoutes);
 app.use('/api/projects', projectRoutes);
-app.use('/api/qualifications', qualificationRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 

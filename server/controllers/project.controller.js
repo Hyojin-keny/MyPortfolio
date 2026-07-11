@@ -1,62 +1,89 @@
-const Project = require('../models/project.model');
+const Project = require("../models/project.model");
 
-exports.findAll = async (req, res) => {
+exports.getProjects = async (req, res) => {
+
   try {
-    const list = await Project.find();
-    res.json(list);
+
+    const projects = await Project.find().sort({
+      createdAt: -1
+    });
+
+    res.json(projects);
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+
+    res.status(500).json({
+      error: err.message
+    });
+
   }
+
 };
 
-exports.findOne = async (req, res) => {
+exports.createProject = async (req, res) => {
+
   try {
-    const item = await Project.findById(req.params.id);
-    if (!item) return res.status(404).json({ error: 'Not found' });
-    res.json(item);
+
+    const project = await Project.create(req.body);
+
+    res.status(201).json(project);
+
   } catch (err) {
-    res.status(400).json({ error: err.message });
+
+    res.status(400).json({
+      error: err.message,
+    });
+
   }
+
 };
 
-exports.create = async (req, res) => {
-  try {
-    const newItem = await new Project(req.body).save();
-    res.status(201).json(newItem);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
+exports.updateProject = async (req, res) => {
 
-exports.update = async (req, res) => {
   try {
-    const updated = await Project.findByIdAndUpdate(
+
+    const project = await Project.findByIdAndUpdate(
+
       req.params.id,
+
       req.body,
-      { new: true }
+
+      {
+        new: true,
+      }
+
     );
-    if (!updated) return res.status(404).json({ error: 'Not found' });
-    res.json(updated);
+
+    res.json(project);
+
   } catch (err) {
-    res.status(400).json({ error: err.message });
+
+    res.status(400).json({
+      error: err.message,
+    });
+
   }
+
 };
 
-exports.deleteOne = async (req, res) => {
-  try {
-    const deleted = await Project.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ error: 'Not found' });
-    res.json({ message: 'Deleted successfully' });
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
+exports.deleteProject = async (req, res) => {
 
-exports.deleteAll = async (req, res) => {
   try {
-    await Project.deleteMany();
-    res.json({ message: 'All projects deleted' });
+
+    await Project.findByIdAndDelete(
+      req.params.id
+    );
+
+    res.json({
+      message: "Deleted",
+    });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+
+    res.status(400).json({
+      error: err.message,
+    });
+
   }
+
 };

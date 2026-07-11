@@ -1,14 +1,41 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const ProjectSchema = new mongoose.Schema({
-  title:      { type: String, required: true },
-  firstname:  { type: String, required: true },
-  lastname:   { type: String, required: true },
-  email:      { type: String, required: true },
-  completion: { type: Date,   required: true },
-  description:{ type: String, required: true },
-}, {
-  timestamps: true
-});
+const projectSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
 
-module.exports = mongoose.model('Project', ProjectSchema);
+    category: {
+      type: String,
+      enum: ["page", "ui", "app", "api"],
+      required: true,
+    },
+
+    description: {
+      type: String,
+      required: true,
+    },
+
+    thumbnail: {
+      type: String,
+      required: true,
+    },
+
+    demoUrl: {
+      type: String,
+      default: "",
+    },
+
+    githubUrl: {
+      type: String,
+      default: "",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("Project", projectSchema);

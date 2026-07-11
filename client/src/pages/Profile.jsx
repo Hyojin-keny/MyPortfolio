@@ -12,13 +12,13 @@ export default function Profile() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '40px', backgroundColor: '#FAF8E6' }}>
+    <div style={{ minHeight: '100vh', paddingTop: '120px'}}>
       <div
         style={{
           maxWidth: '500px',
           margin: '0 auto',
           backgroundColor: '#fff',
-          padding: '30px',
+          padding: '40px',
           borderRadius: '12px',
           boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
           color: '#3d3d3d'
@@ -37,8 +37,8 @@ export default function Profile() {
               onClick={handleLogout}
               style={{
                 padding: '12px 24px',
-                backgroundColor: '#FFC74F',
-                color: '#3d3d3d',
+                backgroundColor: '#6B705C',
+                color: '#ffffff',
                 border: 'none',
                 borderRadius: '6px',
                 cursor: 'pointer',
