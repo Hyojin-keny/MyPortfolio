@@ -25,7 +25,7 @@ export default function Services() {
           maxWidth: '600px',
           margin: '0 auto',
           textAlign: 'center',
-          paddingTop: '40px'
+          paddingTop: '20px'
         }}
       >
         <h1 style={{ marginBottom: '35px' }}>Tech Stack</h1>
@@ -33,7 +33,7 @@ export default function Services() {
         <div style={{
           width: '60px',
           height: '4px',
-          backgroundColor: '#A3B18A',
+          backgroundColor: '#B08D57',
           margin: '0 auto 70px auto',
           borderRadius: '2px'
         }}></div>

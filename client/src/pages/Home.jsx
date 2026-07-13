@@ -44,11 +44,13 @@ export default function Home() {
               background: "#6B705C",
               color: "#fff",
               border: "none",
-              borderRadius: "5px",
+              borderRadius: "10px",
               cursor: "pointer",
+              transition: "0.2s ease",
+              fontSize: "14px"
             }}
           >
-            About Me
+            About Me ↗
           </button>
         </Link>
       </div>

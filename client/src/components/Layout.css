@@ -12,3 +12,9 @@
   min-height: 100vh;
   /* padding-top: 60px; */
 }
+
+@media (max-width: 768px) {
+  .page-content {
+    padding-top: 90px;
+  }
+}

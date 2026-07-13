@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     if (storedToken) {
       try {
         const decoded = JSON.parse(atob(storedToken.split('.')[1]));
-        setUser({ id: decoded.id, role: decoded.role });
+        setUser({ id: decoded.id, role: decoded.role, name: decoded.name, email: decoded.email});
       } catch (err) {
         console.error('Token decoding failed:', err);
         sessionStorage.removeItem('jwt'); 
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.setItem('jwt', token); 
     try {
       const decoded = JSON.parse(atob(token.split('.')[1]));
-      setUser({ id: decoded.id, role: decoded.role });
+      setUser({ id: decoded.id, role: decoded.role, name: decoded.name, email: decoded.email});
     } catch (err) {
       console.error('Login decoding error:', err);
     }

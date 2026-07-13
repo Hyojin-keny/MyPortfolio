@@ -34,7 +34,7 @@ export default function SignIn() {
     backgroundColor: '#6B705C',
     color: '#ffffff',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: '7px',
     cursor: 'pointer',
   };
 

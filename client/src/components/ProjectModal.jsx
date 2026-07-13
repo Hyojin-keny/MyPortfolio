@@ -21,6 +21,15 @@ export default function ProjectModal({
     (project) => project.category === category.id
   );
 
+  const linkStyle = {
+    display: "inline-block",
+    padding: "8px 18px",
+    borderRadius: "8px",
+    textDecoration: "none",
+    fontSize: "14px",
+    transition: "0.2s ease",
+  };
+
   if (filteredProjects.length === 0) {
     return (
       <div
@@ -53,8 +62,9 @@ export default function ProjectModal({
               right: "15px",
               border: "none",
               background: "transparent",
-              fontSize: "22px",
+              fontSize: "15px",
               cursor: "pointer",
+              backgroundColor: "#e2e2e2"
             }}
           >
             ×
@@ -104,22 +114,28 @@ export default function ProjectModal({
             right: "15px",
             border: "none",
             background: "transparent",
-            fontSize: "22px",
+            fontSize: "15px",
             cursor: "pointer",
+            backgroundColor: "#e2e2e2"
           }}
         >
           ×
         </button>
 
         {/* Category */}
-        <p
+        <span
           style={{
-            color: "#777",
-            marginBottom: "5px",
+              display: "inline-block",
+              padding: "6px 12px",
+              backgroundColor: "#EEF0E8",
+              color: "#6B705C",
+              borderRadius: "20px",
+              fontSize: "13px",
+              fontWeight: "600",
           }}
         >
           {category.title}
-        </p>
+        </span>
 
         {/* Title */}
         <h2>{project.title}</h2>
@@ -133,7 +149,7 @@ export default function ProjectModal({
             height: "300px",
             objectFit: "cover",
             borderRadius: "8px",
-            marginTop: "15px",
+            // marginTop: "15px",
           }}
         />
 
@@ -142,6 +158,7 @@ export default function ProjectModal({
           style={{
             marginTop: "20px",
             lineHeight: "1.7",
+            whiteSpace: "pre-line",
           }}
         >
           {project.description}
@@ -156,23 +173,50 @@ export default function ProjectModal({
           }}
         >
           {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </a>
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  ...linkStyle,
+                  backgroundColor: "#6B705C",
+                  color: "#ffffff",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#565b4b";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#6B705C";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                Live Demo ↗
+              </a>
           )}
 
           {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  ...linkStyle,
+                  backgroundColor: "#ffffff",
+                  color: "#3d3d3d",
+                  border: "1px solid #d5d5d0",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#f4f4f0";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#ffffff";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >
+                GitHub ↗
+              </a>
           )}
         </div>
 
@@ -190,7 +234,7 @@ export default function ProjectModal({
               style={{
                 padding: "8px 15px",
                 border: "none",
-                background: "#6B705C",
+                background: "#A3B18A",
                 color: "#fff",
                 borderRadius: "5px",
                 cursor: "pointer",

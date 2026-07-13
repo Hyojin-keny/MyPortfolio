@@ -18,7 +18,7 @@ export default function About() {
           style={{
             width: '60px',
             height: '4px',
-            backgroundColor: '#A3B18A',
+            backgroundColor: '#B08D57',
             margin: '0 auto 80px',
             borderRadius: '2px'
           }}
@@ -76,13 +76,13 @@ export default function About() {
             />
             <br />
             <h3>Explore Me</h3>
-            <a style={{ color: 'black' }} href="/resume.pdf" download>⬇️ Download My Resume</a><br />
+            <a style={{ color: 'black' }} href="/resume.pdf" download>↗ Download My Resume</a><br />
             <a style={{ color: 'black' }}
-                href="https://github.com/Hyojin-keny/MyPortfolio"
+                href="https://mercury-toothpaste-533.notion.site/Office-75659b4d259246238a51a4e3e0c3a28f?source=copy_link"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                🔗 GitHub
+                ↗ Notion
               </a>
           </div>
         </div>

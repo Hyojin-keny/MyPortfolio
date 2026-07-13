@@ -19,12 +19,12 @@ export default function SignUp() {
   };
 
   const buttonStyle = {
-    padding: '11px 44px',
+    padding: '11px 124px',
     marginTop: '10px',
     backgroundColor: '#6B705C',
     color: '#ffffff',
     border: 'none',
-    borderRadius: '4px',
+    borderRadius: '7px',
     cursor: 'pointer'
   };
 

@@ -9,6 +9,11 @@ import ProjectForm from "../components/ProjectForm";
 import Lottie from "lottie-react";
 import projectAnimation from "../assets/lottie/Deep Work Illustration Loop.json";
 
+import port1 from "../assets/portimg/port1.png";
+import port2 from "../assets/portimg/port2.png";
+import port3 from "../assets/portimg/port3.png";
+import port4 from "../assets/portimg/port4.png";
+
 export default function Projects() {
   const { user } = useAuth();
 
@@ -83,10 +88,10 @@ export default function Projects() {
   };
 
   const categories = [
-    { id: "page", title: "Page Design" },
-    { id: "ui", title: "UI" },
-    { id: "app", title: "App" },
-    { id: "api", title: "API" },
+    { id: "app", title: "Apps", image: port1 },
+    { id: "commerce", title: "E-commerce", image: port2 },
+    { id: "api", title: "API", image: port3 },
+    { id: "basic", title: "Fundamentals", image: port4 },
   ];
 
   if (!user) {
@@ -152,12 +157,12 @@ export default function Projects() {
               setShowForm(true);
             }}
             style={{
-              padding: "12px 20px",
+              padding: "13px 24px",
               margin: "20px 0",
               background: "#6B705C",
               color: "#fff",
               border: "none",
-              borderRadius: "6px",
+              borderRadius: "8px",
               cursor: "pointer",
             }}
           >

@@ -9,7 +9,7 @@ const projectSchema = new mongoose.Schema(
 
     category: {
       type: String,
-      enum: ["page", "ui", "app", "api"],
+      enum: ["app", "commerce", "api", "basic"],
       required: true,
     },
 
