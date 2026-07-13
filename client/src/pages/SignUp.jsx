@@ -19,7 +19,8 @@ export default function SignUp() {
   };
 
   const buttonStyle = {
-    padding: '11px 124px',
+    width: '76%',
+    padding: '11px',
     marginTop: '10px',
     backgroundColor: '#6B705C',
     color: '#ffffff',

@@ -238,7 +238,7 @@ export default function Contact() {
                 Location
               </p>
 
-              <p style={{ margin: 0 }}>Toronto, Ontario</p>
+              <p style={{ margin: 0 }}>Korea, Busan</p>
             </div>
           </div>
 
