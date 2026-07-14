@@ -30,7 +30,7 @@ export default function SignIn() {
   const buttonStyle = {
     width: '50%',
     padding: '12px 0',
-    marginTop: '15px',
+    marginTop: '10px',
     backgroundColor: '#6B705C',
     color: '#ffffff',
     border: 'none',
@@ -72,6 +72,10 @@ export default function SignIn() {
             <button type="button" onClick={() => navigate('/signup')} style={grayButtonStyle}>Sign Up</button>
           </div>
         </form>
+        <div style={{ marginTop: '30px', fontSize: '14px', color: '#666' }}>
+          <strong>Demo Admin</strong><br />
+            aa@naver.com / qwer123
+        </div>
       </div>
     </div>
   );
