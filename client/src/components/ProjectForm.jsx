@@ -96,10 +96,10 @@ export default function ProjectForm({ onSubmit, close, initialData }) {
 
         <select name="category" value={form.category} onChange={handleChange} style={inputStyle}>
           <option value="">Select Category</option>
-          <option value="app">Apps</option>
-          <option value="commerce">E-commerce</option>
-          <option value="api">API</option>
-          <option value="basic">Fundamentals</option>
+          <option value="app">Web Application</option>
+          <option value="commerce">Full Stack</option>
+          <option value="api">Frontend</option>
+          <option value="basic">Database</option>
         </select>
 
         <input
