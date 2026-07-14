@@ -88,8 +88,8 @@ export default function Projects() {
   };
 
   const categories = [
-    { id: "app", title: "Full Stack", image: port1 },
-    { id: "commerce", title: "Web Applications", image: port2 },
+    { id: "app", title: "Web Applications", image: port1 },
+    { id: "commerce", title: "Full Stack", image: port2 },
     { id: "api", title: "Frontend", image: port3 },
     { id: "basic", title: "Database", image: port4 },
   ];
