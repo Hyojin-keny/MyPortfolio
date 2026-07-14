@@ -92,7 +92,7 @@ export default function ProjectModal({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        zIndex: 999,
+        zIndex: 2000,
       }}
     >
       <div
